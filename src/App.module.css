@@ -1,0 +1,41 @@
+.app {
+  width: 100%;
+  height: 5rem;
+  background-color: #044599;
+  padding: 0;
+}
+
+.app nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app ul {
+  height: 100%;
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.app li {
+  margin: 0 1rem;
+  width: fit-content;
+}
+
+.app a {
+  color: white;
+  text-decoration: none;
+}
+
+.app a:hover,
+.app a:active,
+.app a.active {
+  color: #95bcf0;
+  padding-bottom: 0.25rem;
+  border-bottom: 4px solid #95bcf0;
+}
