@@ -72,7 +72,7 @@ function App() {
       </nav>
 
       <Route path="/tabs/:identifier">
-        <Comp items={sortedData} />
+        <Comp />
       </Route>
     </div>
   );
