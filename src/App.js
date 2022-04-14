@@ -1,28 +1,46 @@
 import { NavLink, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
 import classes from "./App.module.css";
 import Comp from "./components/Comp";
 
 function App() {
-  const data = [
-    {
-      id: "dummyTable",
-      title: "Dummy Table",
-      order: 1,
-      path: "tabs/dummyTable.js",
-    },
-    {
-      id: "dummyChart",
-      title: "Dummy Chart",
-      order: 2,
-      path: "tabs/dummyChart.js",
-    },
-    {
-      id: "dummyList",
-      title: "Dummy List",
-      order: 0,
-      path: "tabs/dummyList.js",
-    },
-  ];
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    fetch('tabs.json', {
+      headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+   })
+  .then( res => res.json())
+  .then((data) => {
+       setData(data);
+
+  });
+  }, []);
+  
+
+  // const data = [
+  //   {
+  //     id: "dummyTable",
+  //     title: "Dummy Table",
+  //     order: 1,
+  //     path: "tabs/dummyTable.js",
+  //   },
+  //   {
+  //     id: "dummyChart",
+  //     title: "Dummy Chart",
+  //     order: 2,
+  //     path: "tabs/dummyChart.js",
+  //   },
+  //   {
+  //     id: "dummyList",
+  //     title: "Dummy List",
+  //     order: 0,
+  //     path: "tabs/dummyList.js",
+  //   },
+  // ];
   const sortedData = data.sort((a, b) => {
     return a.order - b.order;
   });
@@ -34,7 +52,8 @@ function App() {
           {sortedData.map((item) => {
             return (
               <li key={item.id}>
-                <NavLink activeClassName={classes.active}
+                <NavLink
+                  activeClassName={classes.active}
                   to={{
                     pathname: `/${item.path}`,
                     state: {

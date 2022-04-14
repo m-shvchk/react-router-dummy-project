@@ -1,6 +1,9 @@
 .comp {
-  background-color: #95bcf0;
-  height: 86.5vh;
   text-align: center;
-  
+}
+.comp h1 {
+  color: white;
+}
+.comp p {
+  color: #044599;
 }
